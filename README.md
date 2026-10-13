@@ -2,6 +2,8 @@
 
 Catch dangerous CORS policy combinations before they ship — from the config, not the wire. Give it one policy file (declarative JSON or a raw `Access-Control-*` header map) and it flags wildcard-plus-credentials, origin reflection, `null`-origin allowlisting, and six more risky patterns with severity levels. Purely static: no network requests, no attack payloads. Pure Python, standard library only.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 CORS misconfiguration is a config-review failure, not a runtime mystery: someone writes `"allowed_origins": ["*"]` next to `"allow_credentials": true`, or allowlists the literal string `null`, and nothing complains until a pentest does. Scanning deployed endpoints requires infrastructure and produces noise; the actual decision lives in a config file that could be judged in milliseconds at review time or in CI.
